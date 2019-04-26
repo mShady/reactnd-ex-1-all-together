@@ -24,14 +24,15 @@ class CreateUser extends Component {
   }
 
   userAlreadyExists(username) {
-    return this.props.users.includes(
-      user => user.username.toUpperCase() === username.toUpperCase()
+    return (
+      this.props.users.filter(
+        user => user.username.toUpperCase() === username.toUpperCase()
+      ).length > 0
     );
   }
 
   isAddButtonDisabled() {
     const { firstName, lastName, username } = this.state.newUser;
-
     if (this.isDuplicateUserErrorShown()) return true;
     if (firstName === "" || lastName === "" || username === "") {
       return true;

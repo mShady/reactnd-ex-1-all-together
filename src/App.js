@@ -12,8 +12,14 @@ The instructions for this project are located in the `instructions.md` file.
 */
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { users: [], showGamesCount: false };
+  }
   addUser(newUser) {
-    console.log(newUser);
+    this.setState(currentState => ({
+      users: [...currentState.users, newUser]
+    }));
   }
 
   render() {
@@ -23,7 +29,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <CreateUser onAddUser={newUser => this.addUser(newUser)} users={[]} />
+        <CreateUser
+          onAddUser={newUser => this.addUser(newUser)}
+          users={this.state.users}
+        />
       </div>
     );
   }
