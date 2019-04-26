@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import CreateUser from "./CreateUser";
+import ListUsers from "./ListUsers";
 
 /*
 This exercise will help you put together and practice all of the concepts you've
@@ -32,6 +33,10 @@ class App extends Component {
         <CreateUser
           onAddUser={newUser => this.addUser(newUser)}
           users={this.state.users}
+        />
+        <ListUsers
+          users={this.state.users}
+          showGamesCount={this.state.showGamesCount}
         />
       </div>
     );

@@ -41,7 +41,7 @@ class CreateUser extends Component {
   }
 
   addUser() {
-    this.props.onAddUser(this.state.newUser);
+    this.props.onAddUser({ ...this.state.newUser, gameCount: 0 });
     this.setState({
       newUser: {
         firstName: "",
