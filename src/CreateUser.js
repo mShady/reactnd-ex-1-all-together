@@ -53,8 +53,6 @@ class CreateUser extends Component {
 
   onChange(event) {
     const { id, value } = event.target;
-    console.log(value);
-    console.log(id);
     this.setState(currentState => ({
       newUser: { ...currentState.newUser, [id]: value }
     }));
