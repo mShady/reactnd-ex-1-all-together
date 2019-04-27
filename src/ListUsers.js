@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class ListUsers extends Component {
   static propTypes = {
     users: PropTypes.array.isRequired,
-    showGamesCount: PropTypes.bool.isRequired
+    isGamesCountVisible: PropTypes.bool.isRequired
   };
 
   render() {
@@ -13,7 +13,7 @@ class ListUsers extends Component {
         {this.props.users.map(user => (
           <li key={user.username}>
             {user.username} played{" "}
-            {this.props.showGamesCount ? user.gameCount : "*"} games
+            {this.props.isGamesCountVisible ? user.gameCount : "*"} games
           </li>
         ))}
       </ul>

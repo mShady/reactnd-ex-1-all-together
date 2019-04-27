@@ -15,7 +15,7 @@ The instructions for this project are located in the `instructions.md` file.
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { users: [], showGamesCount: false };
+    this.state = { users: [], isGamesCountVisible: false };
   }
   addUser(newUser) {
     this.setState(currentState => ({
@@ -36,7 +36,7 @@ class App extends Component {
         />
         <ListUsers
           users={this.state.users}
-          showGamesCount={this.state.showGamesCount}
+          isGamesCountVisible={this.state.isGamesCountVisible}
         />
       </div>
     );
