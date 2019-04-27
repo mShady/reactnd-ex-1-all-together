@@ -23,6 +23,12 @@ class App extends Component {
     }));
   }
 
+  toggleGamesCountVisibility() {
+    this.setState(currentState => ({
+      isGamesCountVisible: !currentState.isGamesCountVisible
+    }));
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,6 +40,11 @@ class App extends Component {
           onAddUser={newUser => this.addUser(newUser)}
           users={this.state.users}
         />
+        <button onClick={() => this.toggleGamesCountVisibility()}>
+          {this.state.isGamesCountVisible
+            ? "Hide the Number of Games Played"
+            : "Show the Number of Games Played"}
+        </button>
         <ListUsers
           users={this.state.users}
           isGamesCountVisible={this.state.isGamesCountVisible}
