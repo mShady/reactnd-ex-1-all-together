@@ -15,17 +15,12 @@ The instructions for this project are located in the `instructions.md` file.
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { users: [], isGamesCountVisible: false };
+    this.state = { users: [] };
   }
+
   addUser(newUser) {
     this.setState(currentState => ({
       users: [...currentState.users, newUser]
-    }));
-  }
-
-  toggleGamesCountVisibility() {
-    this.setState(currentState => ({
-      isGamesCountVisible: !currentState.isGamesCountVisible
     }));
   }
 
@@ -40,11 +35,6 @@ class App extends Component {
           onAddUser={newUser => this.addUser(newUser)}
           users={this.state.users}
         />
-        <button onClick={() => this.toggleGamesCountVisibility()}>
-          {this.state.isGamesCountVisible
-            ? "Hide the Number of Games Played"
-            : "Show the Number of Games Played"}
-        </button>
         <ListUsers
           users={this.state.users}
           isGamesCountVisible={this.state.isGamesCountVisible}
